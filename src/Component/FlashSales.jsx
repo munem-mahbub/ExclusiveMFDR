@@ -39,8 +39,10 @@ function SamplePrevArrow(props) {
     );
 }
 
+
+
 const Flashsales = () => {
-    const settings = {
+  const settings = {
         dots: false,
         infinite: true,
         speed: 500,

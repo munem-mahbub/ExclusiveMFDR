@@ -7,8 +7,8 @@ import Explore from '../Component/Explore'
 import Arrival from '../Component/Arrival'
 import Customer from '../Component/Customer'
 import BreadCrumb from '../Component/BreadCrumb'
-import Flashsales from '../Component/Flashsales'
 import Container from '../Component/Container'
+import Flashsales from '../Component/Flashsales'
 
 
 const Home = () => {
@@ -17,7 +17,7 @@ const Home = () => {
       <Container>
         <BreadCrumb />
         <Banner />
-        <Flashsales />
+        <Flashsales/>
         <Catagories />
         <BestSelling />
         <Enhance />
