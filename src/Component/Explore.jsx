@@ -3,10 +3,10 @@ import SecHead from '../Component/SecHead'
 import Counter from './Counter'
 import Container from './Container'
 import Flex from './Flex'
-import Explore1 from '../assets/explore1.png'
-import Explore2 from '../assets/explore2.png'
-import Explore3 from '../assets/explore3.png'
-import Explore4 from '../assets/explore4.png'
+import Explore1 from '../assets/Explore1.png'
+import Explore2 from '../assets/Explore2.png'
+import Explore3 from '../assets/Explore3.png'
+import Explore4 from '../assets/Explore4.png'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
