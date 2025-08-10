@@ -2,9 +2,9 @@ import React from 'react'
 import Container from './Container'
 import Flex from './Flex'
 import Image from './Image'
-import Customer1 from '../assets/customer1.png'
-import Customer2 from '../assets/customer2.png'
-import Customer3 from '../assets/customer3.png'
+import Customer1 from '../assets/Customer1.png'
+import Customer2 from '../assets/Customer2.png'
+import Customer3 from '../assets/Customer3.png'
 
 const Customer = () => {
   return (
