@@ -8,7 +8,7 @@ import Arrival from '../Component/Arrival'
 import Customer from '../Component/Customer'
 import BreadCrumb from '../Component/BreadCrumb'
 import Container from '../Component/Container'
-import Flashsales from '../Component/Flashsales'
+
 
 
 const Home = () => {
