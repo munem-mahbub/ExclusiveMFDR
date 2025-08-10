@@ -17,7 +17,6 @@ const Home = () => {
       <Container>
         <BreadCrumb />
         <Banner />
-        <Flashsales/>
         <Catagories />
         <BestSelling />
         <Enhance />
