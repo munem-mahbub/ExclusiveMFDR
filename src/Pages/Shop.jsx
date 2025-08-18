@@ -6,13 +6,21 @@ import List from '../Component/List'
 import ListItems from '../Component/ListItems'
 import Card from '../Component/Card'
 import axios from 'axios'
+import Skeleton from '../Component/Skeleton'
+import Pagination from '../Component/Pagination'
+import Image from '../Component/Image'
+import OvalBlack from '../assets/OvalBlack.png'
+import OvalRed from '../assets/OvalRed.png'
+import OvalGreen from '../assets/OvalGreen.png'
 
 
 
-const Shop = (items) => {
+
+const Shop = () => {
 
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
+  const [optionShow, setOptionShow] = useState(6)
 
 
   async function getAllProducts() {
@@ -36,116 +44,55 @@ const Shop = (items) => {
         <BreadCrumb />
         <Flex className='mt-[50px]'>
           <div className='w-[25%]'>
-            <h2 className='text-xl font-bold'>Shop by Category</h2>
-            <List className='w-[217px] mt-[15px] grid gap-4 font-poppins'>
-              <ListItems>Woman’s Fashion</ListItems>
-              <ListItems>Men’s Fashion</ListItems>
-              <ListItems>Electronics</ListItems>
-              <ListItems>Home & Lifestyle</ListItems>
-              <ListItems>Medicine</ListItems>
-              <ListItems>Sports & Outdoor</ListItems>
-              <ListItems>Baby’s & Toys</ListItems>
-              <ListItems>Groceries & </ListItems>
-              <ListItems>Health & Beauty</ListItems>
-            </List>
+            <div>
+              <h2 className='text-xl font-bold'>Shop by Category</h2>
+              <List className='w-[217px] mt-[15px] grid gap-4 font-poppins'>
+                <ListItems>Woman’s Fashion</ListItems>
+                <ListItems>Men’s Fashion</ListItems>
+                <ListItems>Electronics</ListItems>
+                <ListItems>Home & Lifestyle</ListItems>
+                <ListItems>Medicine</ListItems>
+                <ListItems>Sports & Outdoor</ListItems>
+                <ListItems>Baby’s & Toys</ListItems>
+                <ListItems>Groceries & </ListItems>
+                <ListItems>Health & Beauty</ListItems>
+              </List>
+            </div>
+            <div className='mt-10'>
+              <h2 className='text-xl font-bold'>Shop by Color</h2>
+              <List className='mt-[15px] grid gap-4.5 font-poppins text-[#767676]'>
+                <Flex className='items-center gap-2.5'>
+                <Image src={OvalBlack} className='w-[11px] h-[11px]'/>
+                <ListItems>Color 1</ListItems>
+                </Flex>
+                <Flex className='items-center gap-2.5'>
+                  <Image src={OvalRed} className='w-[11px] h-[11px]'/>
+                <ListItems>Color 2</ListItems>
+                </Flex>
+                <Flex className='items-center gap-2.5'>
+                  <Image src={OvalGreen} className='w-[11px] h-[11px]'/>
+                <ListItems>Color 3</ListItems>
+                </Flex>
+              </List>
+            </div>
           </div>
-          <div className='w-[75%] flex flex-wrap gap-x-5 gap-y-10'>
-            {
-              loading ?
-                <div className='flex flex-wrap gap-15'>
-                  <div role="status" className="max-w-sm p-4 rounded-sm animate-pulse md:p-6">
-                    <div className="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
-                      <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
-                        <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z" />
-                        <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
-                      </svg>
-                    </div>
-                    <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4" />
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5" />
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5" />
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700" />
-                    <span className="sr-only">Loading...</span>
-                  </div>
-                  <div role="status" className="max-w-sm p-4 rounded-sm animate-pulse md:p-6">
-                    <div className="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
-                      <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
-                        <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z" />
-                        <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
-                      </svg>
-                    </div>
-                    <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4" />
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5" />
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5" />
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700" />
-                    <span className="sr-only">Loading...</span>
-                  </div>
-                  <div role="status" className="max-w-sm p-4 rounded-sm animate-pulse md:p-6">
-                    <div className="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
-                      <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
-                        <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z" />
-                        <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
-                      </svg>
-                    </div>
-                    <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4" />
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5" />
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5" />
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700" />
-                    <span className="sr-only">Loading...</span>
-                  </div>
-                  <div role="status" className="max-w-sm p-4 rounded-sm animate-pulse md:p-6">
-                    <div className="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
-                      <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
-                        <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z" />
-                        <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
-                      </svg>
-                    </div>
-                    <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4" />
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5" />
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5" />
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700" />
-                    <span className="sr-only">Loading...</span>
-                  </div>
-                  <div role="status" className="max-w-sm p-4 rounded-sm animate-pulse md:p-6">
-                    <div className="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
-                      <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
-                        <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z" />
-                        <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
-                      </svg>
-                    </div>
-                    <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4" />
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5" />
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5" />
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700" />
-                    <span className="sr-only">Loading...</span>
-                  </div>
-                  <div role="status" className="max-w-sm p-4 rounded-sm animate-pulse md:p-6">
-                    <div className="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
-                      <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
-                        <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z" />
-                        <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
-                      </svg>
-                    </div>
-                    <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4" />
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5" />
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5" />
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700" />
-                    <span className="sr-only">Loading...</span>
-                  </div>
-                </div>
-                : products.map((items) => {
-                  return (
-                  <Card
-                    img={items.thumbnail}
-                    discount={items.discountPercentage}
-                    heading={items.title}
-                    price={items.price}
-                    prev={Math.floor(items.price / (1 - items.discountPercentage / 100))}
-                    rating={items.rating}
-                    review={items.reviews[0].rating}
-                  />
-                  )
-                })
-            }
+          <div className='lg:w-[75%] w-full'>
+            <div className='flex justify-end items-center gap-2 lg:mb-3.5 mb-[-15px]'>
+              <h5>Show</h5>
+              <select onChange={(e) => setOptionShow(Number(e.target.value))} id="#" className="py-1 px-2  border-2 border-solid">
+                <option value="6">6</option>
+                <option value="9">9</option>
+                <option value="12">12</option>
+              </select>
+            </div>
+            <div className='flex flex-wrap justify-between gap-5'>
+              {
+                loading ?
+                  Array.from({ length: optionShow }).map((_, index) => <Skeleton key={index} />)
+                  :
+                  (<Pagination itemsPerPage={optionShow} products={products} />)
+              }
+            </div>
           </div>
         </Flex>
       </Container>
