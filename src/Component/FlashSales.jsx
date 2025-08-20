@@ -57,7 +57,7 @@ const Flashsales = () => {
             <Container className='mt-20 border-b-1 border-secondary pb-17.5'>
                 <Flex className='items-end gap-[87px]'>
                     <SecHead title='Todays' header='Flash Sales' />
-                    <Counter className='' />
+                    <Counter />
                 </Flex>
                 <Slider {...settings} className='mt-10'>
                     <Card
